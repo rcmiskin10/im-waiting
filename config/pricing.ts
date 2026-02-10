@@ -24,80 +24,79 @@ export const pricingConfig: {
   model: 'freemium',
 
   defaultLimits: {
-    entities: 1,
-    signups: 200
+    launch_pages: 1,
+    signups: 250
   },
 
   plans: [
     {
       id: 'free',
       name: 'Free',
-      description: 'Perfect for testing your first idea',
+      description: 'Perfect for validating your next idea',
       price: { monthly: 0 },
       limits: {
-        entities: 1,
-        signups: 200
+        launch_pages: 1,
+        signups: 250
       },
       features: [
-        '1 active waitlist page',
-        'Up to 200 email signups',
-        'Basic referral tracking',
+        '1 launch page',
+        'Up to 250 email signups',
+        'Basic referral tracking with unique links',
         'Countdown timer',
-        '3 starter templates',
-        'Basic analytics (signups & trends)',
-        'ImWaiting badge on page'
+        '3 modern templates',
+        'Subdomain hosting (you.imwaiting.io)',
+        'Basic analytics (total signups, daily chart)',
+        'Subtle \'Powered by ImWaiting\' badge'
       ],
       cta: 'Get Started Free',
     },
     {
       id: 'pro',
       name: 'Pro',
-      description: 'Everything you need to launch like a pro',
+      description: 'For serious launches — no limits, no contact caps',
       price: { monthly: 12, yearly: 96 },
       priceId: process.env.STRIPE_PRICE_PRO,
       limits: {
-        entities: -1,
+        launch_pages: -1,
         signups: -1
       },
       features: [
-        'Unlimited waitlist pages',
-        'Unlimited email signups',
-        'Advanced referral tracking & leaderboard',
+        'Unlimited launch pages',
+        'Unlimited email signups — no contact caps',
         'Custom domain support',
-        'Remove ImWaiting branding',
-        'Full template library (15+ designs)',
-        'Advanced analytics & viral coefficient',
-        'Social proof widgets',
-        'A/B testing for headlines & CTAs',
-        'CSV export of subscribers',
-        'Integrations (Zapier, webhooks, ConvertKit, Mailchimp)',
-        'Launch day automation',
+        'Remove ImWaiting badge',
+        'Full analytics dashboard (sources, geography, referral chains)',
+        'All templates + custom CSS',
+        'Referral leaderboard & milestone rewards',
+        'Integrations (Zapier, Discord, Slack, ConvertKit)',
+        'Embeddable waitlist widget',
+        'CSV/JSON data export',
         'Priority email support'
       ],
       highlighted: true,
       cta: 'Start Pro — $12/mo',
     },
     {
-      id: 'agency',
-      name: 'Agency',
-      description: 'For serial launchers and agencies',
-      price: { monthly: 29, yearly: 290 },
-      priceId: process.env.STRIPE_PRICE_AGENCY,
+      id: 'team',
+      name: 'Team',
+      description: 'For studios and teams launching multiple products',
+      price: { monthly: 29, yearly: 240 },
+      priceId: process.env.STRIPE_PRICE_TEAM,
       limits: {
-        entities: -1,
+        launch_pages: -1,
         signups: -1
       },
       features: [
         'Everything in Pro',
-        'Team collaboration (3 seats)',
-        'White-label pages',
-        'API access & JavaScript SDK',
-        'Custom CSS/JS injection',
-        'Multiple custom domains per page',
-        'Pre-order / Stripe integration',
-        'Priority support with 24h response'
+        '3 team member seats',
+        'A/B testing for landing pages',
+        'Custom email sequences',
+        'Full API access',
+        'White-label option',
+        'Stripe pre-launch payment integration',
+        'Dedicated support'
       ],
-      cta: 'Go Agency',
+      cta: 'Contact Us',
     }
   ],
 }

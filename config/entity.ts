@@ -44,9 +44,9 @@ export interface EntityConfig {
 }
 
 export const entityConfig: EntityConfig = {
-  name: 'WaitlistPage',
-  pluralName: 'WaitlistPages',
-  slug: 'waitlist_pages',
+  name: 'LaunchPage',
+  pluralName: 'LaunchPages',
+  slug: 'launch_pages',
   icon: Rocket,
 
   fields: [
@@ -60,39 +60,12 @@ export const entityConfig: EntityConfig = {
       showInForm: true,
     },
     {
-      name: 'description',
-      label: 'Description',
-      type: 'rich-text',
-      required: false,
-      placeholder: 'Tell visitors about your product...',
-      showInList: true,
-      showInForm: true,
-    },
-    {
-      name: 'page_status',
-      label: 'Page Status',
-      type: 'select',
+      name: 'subdomain',
+      label: 'Subdomain',
+      type: 'text',
       required: true,
-      options: ['draft', 'published', 'archived'],
-      defaultValue: 'draft',
+      placeholder: 'e.g., myproduct',
       showInList: true,
-      showInForm: true,
-    },
-    {
-      name: 'signup_count',
-      label: 'Sign-up Count',
-      type: 'number',
-      required: true,
-      defaultValue: '0',
-      showInList: true,
-      showInForm: false,
-    },
-    {
-      name: 'launch_date',
-      label: 'Launch Date',
-      type: 'datetime',
-      required: false,
-      showInList: false,
       showInForm: true,
     },
     {
@@ -100,8 +73,16 @@ export const entityConfig: EntityConfig = {
       label: 'Custom Domain',
       type: 'url',
       required: false,
-      placeholder: 'e.g., launch.myproduct.com',
+      placeholder: 'e.g., https://www.myproduct.com',
       showInList: false,
+      showInForm: true,
+    },
+    {
+      name: 'launch_date',
+      label: 'Launch Date',
+      type: 'date',
+      required: false,
+      showInList: true,
       showInForm: true,
     },
     {
@@ -121,17 +102,36 @@ export const entityConfig: EntityConfig = {
       defaultValue: 'true',
       showInList: false,
       showInForm: true,
+    },
+    {
+      name: 'signup_count',
+      label: 'Sign-up Count',
+      type: 'number',
+      required: false,
+      defaultValue: '0',
+      showInList: true,
+      showInForm: false,
+    },
+    {
+      name: 'page_status',
+      label: 'Page Status',
+      type: 'select',
+      required: true,
+      options: ['draft', 'published', 'archived'],
+      defaultValue: 'draft',
+      showInList: true,
+      showInForm: true,
     }
   ],
 
   titleField: 'page_name',
-  descriptionField: 'description',
+  descriptionField: 'subdomain',
   defaultSort: { field: 'created_at', direction: 'desc' },
 
   allowCreate: true,
   allowEdit: true,
   allowDelete: true,
-  allowExport: true,
+  allowExport: false,
 }
 
 export function getListFields(): EntityField[] {
