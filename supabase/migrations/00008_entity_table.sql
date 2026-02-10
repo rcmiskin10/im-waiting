@@ -1,19 +1,19 @@
--- Entity Table: WaitlistPages
+-- Entity Table: LaunchPages
 -- Auto-generated from IdeaLaunch pipeline
 
 CREATE TABLE IF NOT EXISTS public.entities (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID REFERENCES public.profiles(id) ON DELETE CASCADE NOT NULL,
 
-  -- WaitlistPage fields
+  -- LaunchPage fields
   page_name TEXT NOT NULL,
-  description TEXT,
-  page_status TEXT NOT NULL DEFAULT 'draft',
-  signup_count INTEGER NOT NULL DEFAULT '0',
-  launch_date TIMESTAMPTZ,
+  subdomain TEXT NOT NULL,
   custom_domain TEXT,
+  launch_date DATE,
   email_capture_enabled BOOLEAN DEFAULT FALSE NOT NULL,
   referral_tracking_enabled BOOLEAN DEFAULT FALSE NOT NULL,
+  signup_count INTEGER DEFAULT '0',
+  page_status TEXT NOT NULL DEFAULT 'draft',
 
   -- Timestamps
   created_at TIMESTAMPTZ DEFAULT NOW(),
