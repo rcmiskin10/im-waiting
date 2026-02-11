@@ -9,11 +9,12 @@ CREATE TABLE IF NOT EXISTS public.entities (
   page_name TEXT NOT NULL,
   subdomain TEXT NOT NULL,
   custom_domain TEXT,
+  status TEXT NOT NULL DEFAULT 'draft',
+  description TEXT,
   launch_date DATE,
   email_capture_enabled BOOLEAN DEFAULT FALSE NOT NULL,
   referral_tracking_enabled BOOLEAN DEFAULT FALSE NOT NULL,
   signup_count INTEGER DEFAULT '0',
-  page_status TEXT NOT NULL DEFAULT 'draft',
 
   -- Timestamps
   created_at TIMESTAMPTZ DEFAULT NOW(),
@@ -22,7 +23,7 @@ CREATE TABLE IF NOT EXISTS public.entities (
 
 -- Indexes
 CREATE INDEX IF NOT EXISTS idx_entities_user_id ON public.entities(user_id);
-
+CREATE INDEX IF NOT EXISTS idx_entities_status ON public.entities(status);
 CREATE INDEX IF NOT EXISTS idx_entities_created_at ON public.entities(created_at DESC);
 
 -- Auto-update updated_at trigger
