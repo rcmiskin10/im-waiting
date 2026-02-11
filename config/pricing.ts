@@ -32,28 +32,28 @@ export const pricingConfig: {
     {
       id: 'free',
       name: 'Free',
-      description: 'Everything you need to validate your first idea',
+      description: 'Perfect for validating your first idea',
       price: { monthly: 0 },
       limits: {
         launch_pages: 1,
         signups: 200
       },
       features: [
-        '1 waitlist page',
+        '1 launch page',
         'Up to 200 signups',
-        'Email capture form',
-        'Basic referral link tracking',
-        'Launch countdown timer',
-        'Mobile-responsive templates',
-        'Branded subdomain (you.imwaiting.io)',
+        'Email capture & subscriber list',
+        'Countdown timer',
+        'Basic referral tracking',
+        'Basic analytics (visits, signups, conversion rate)',
+        'CSV export of subscribers',
         'ImWaiting badge on page'
       ],
-      cta: 'Start Building Free',
+      cta: 'Get Started Free',
     },
     {
       id: 'pro',
       name: 'Pro',
-      description: 'For serial launchers who ship fast and ship often',
+      description: 'For serial builders who ship fast',
       price: { monthly: 12, yearly: 99 },
       priceId: process.env.STRIPE_PRICE_PRO,
       limits: {
@@ -61,20 +61,19 @@ export const pricingConfig: {
         signups: -1
       },
       features: [
-        'Unlimited waitlist pages',
+        'Unlimited launch pages',
         'Unlimited signups',
         'Custom domain support',
         'Remove ImWaiting branding',
-        'Advanced referral analytics & leaderboard',
-        'Custom email notifications',
-        'A/B test headlines',
-        'Custom thank-you pages',
-        'CSV export of subscribers',
-        'Zapier & webhook integrations',
-        'Priority support'
+        'Advanced analytics & referral leaderboard',
+        'Referral milestone rewards',
+        'Custom welcome & launch emails',
+        'A/B testing for page variants',
+        'Integrations (Mailchimp, ConvertKit, Resend)',
+        'Priority email support'
       ],
       highlighted: true,
-      cta: 'Upgrade to Pro',
+      cta: 'Start Pro — $12/mo',
     }
   ],
 }

@@ -1,4 +1,4 @@
-import { Rocket, Users, Mail, Timer, BarChart, Globe } from 'lucide-react'
+import { Rocket, Mail, Users, Timer, BarChart, Globe } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
 export interface NavItem {
@@ -56,8 +56,8 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   name: 'ImWaiting',
-  tagline: 'Launch pages that build hype before you build the product',
-  description: 'All-in-one waitlist and launch page builder with referral tracking for indie hackers and solo founders.',
+  tagline: 'Beautiful waitlist pages for indie hackers',
+  description: 'Create stunning waitlist pages with email capture, referral tracking, and countdown timers in minutes.',
   url: process.env.NEXT_PUBLIC_APP_URL
     || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : null)
     || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null)
@@ -67,63 +67,61 @@ export const siteConfig: SiteConfig = {
   mainNav: [
     { title: 'Features', href: '/features' },
     { title: 'Pricing', href: '/pricing' },
-    { title: 'Templates', href: '/features#templates' },
     { title: 'Blog', href: '/blog' }
   ],
 
   dashboardNav: [
     { title: 'Dashboard', href: '/dashboard' },
     { title: 'Launch Pages', href: '/dashboard/launch_pages' },
-    { title: 'Subscribers', href: '/dashboard/subscribers' },
     { title: 'Analytics', href: '/dashboard/analytics' },
     { title: 'Settings', href: '/dashboard/settings' }
   ],
 
   hero: {
-    badge: 'Built for indie hackers 🚀',
-    headline: 'Build Waitlist Pages That',
-    headlineHighlight: 'Turn Visitors Into Superfans',
-    subheadline: 'Create stunning coming-soon pages with built-in email capture, viral referral tracking, and launch countdown timers — all for 1/4 the price of alternatives. Go from idea to live waitlist in under 10 minutes.',
-    primaryCta: { text: 'Start Building Free', href: '/register' },
-    secondaryCta: { text: 'See Live Examples', href: '/features' },
-    socialProof: { text: 'Trusted by 1,200+ indie hackers', rating: '4.9/5' },
+    badge: 'Built for Indie Hackers',
+    headline: 'Launch Your Next Product with',
+    headlineHighlight: 'A Waitlist That Converts',
+    subheadline: 'Stop stitching together Carrd, Mailchimp, and SparkLoop. ImWaiting gives you a beautiful coming-soon page with built-in email capture, referral tracking, countdown timer, and analytics — all in under 5 minutes.',
+    primaryCta: { text: 'Create Your Waitlist Free', href: '/register' },
+    secondaryCta: { text: 'See How It Works', href: '/features' },
+    socialProof: { text: 'Trusted by 2,000+ indie hackers', rating: '4.9/5' },
   },
 
   features: [
     {
       icon: Rocket,
-      title: 'Launch-Ready in Minutes',
-      description: 'Pick from modern, opinionated templates designed for the indie hacker aesthetic and publish your waitlist page in under 10 minutes.',
+      title: 'Launch-Ready Templates',
+      description: 'Choose from stunning, mobile-responsive coming-soon templates designed to convert visitors into waitlist subscribers.',
       gradient: 'from-violet-500 to-purple-500',
+    },
+    {
+      icon: Mail,
+      title: 'Built-in Email Capture',
+      description: 'Collect and manage subscriber emails directly — no Mailchimp or ConvertKit setup required. Export anytime as CSV.',
+      gradient: 'from-blue-500 to-cyan-500',
     },
     {
       icon: Users,
       title: 'Viral Referral Tracking',
-      description: 'Every subscriber gets a unique referral link. They share to move up the waitlist, turning your signups into a growth engine.',
+      description: 'Every subscriber gets a unique referral link. Track who\'s sharing, see your leaderboard, and reward your biggest advocates.',
       gradient: 'from-orange-500 to-red-500',
     },
     {
-      icon: Mail,
-      title: 'Built-In Email Capture',
-      description: 'Collect, manage, search, and export your subscriber list from one dashboard — no Mailchimp duct-taping required.',
-      gradient: 'from-cyan-500 to-blue-500',
-    },
-    {
       icon: Timer,
-      title: 'Launch Countdown Timer',
-      description: 'Build urgency with a beautiful countdown timer that syncs to your launch date and keeps visitors coming back.',
+      title: 'Countdown Timer',
+      description: 'Build anticipation with a beautiful countdown timer that ticks down to your launch date and creates urgency.',
       gradient: 'from-emerald-500 to-teal-500',
     },
     {
       icon: BarChart,
-      title: 'Pre-Launch Analytics',
-      description: 'Track signup velocity, referral performance, top sources, and conversion rates — purpose-built for pre-launch metrics.',
+      title: 'Real-Time Analytics',
+      description: 'Track visits, signups, conversion rates, referral sources, and daily trends — all from a clean, actionable dashboard.',
       gradient: 'from-pink-500 to-rose-500',
     },
     {
       icon: Globe,
       title: 'Custom Domains',
-      description: 'Connect your own domain for a professional look, or use a free yourproject.imwaiting.io subdomain to get started instantly.',
+      description: 'Connect your own domain with a guided DNS setup wizard. Make your waitlist page look professional from day one.',
       gradient: 'from-amber-500 to-yellow-500',
     }
   ],
@@ -167,6 +165,6 @@ export const siteConfig: SiteConfig = {
 
   social: {
     github: 'https://github.com/imwaiting',
-    twitter: 'https://twitter.com/imwaitingio'
+    twitter: 'https://twitter.com/imwaiting_app'
   },
 }
