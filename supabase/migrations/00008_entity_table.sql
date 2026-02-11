@@ -1,20 +1,22 @@
 -- Entity Table: LaunchPages
 -- Auto-generated from IdeaLaunch pipeline
+-- Uses DROP + CREATE to handle reruns where the AI may generate a different schema.
 
-CREATE TABLE IF NOT EXISTS public.entities (
+DROP TABLE IF EXISTS public.entities CASCADE;
+
+CREATE TABLE public.entities (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID REFERENCES public.profiles(id) ON DELETE CASCADE NOT NULL,
 
   -- LaunchPage fields
   page_name TEXT NOT NULL,
-  subdomain TEXT NOT NULL,
-  custom_domain TEXT,
-  status TEXT NOT NULL DEFAULT 'draft',
-  description TEXT,
+  page_status TEXT NOT NULL DEFAULT 'draft',
   launch_date DATE,
+  signup_count INTEGER,
+  custom_domain TEXT,
+  description TEXT,
   email_capture_enabled BOOLEAN DEFAULT FALSE NOT NULL,
   referral_tracking_enabled BOOLEAN DEFAULT FALSE NOT NULL,
-  signup_count INTEGER DEFAULT '0',
 
   -- Timestamps
   created_at TIMESTAMPTZ DEFAULT NOW(),
@@ -22,9 +24,9 @@ CREATE TABLE IF NOT EXISTS public.entities (
 );
 
 -- Indexes
-CREATE INDEX IF NOT EXISTS idx_entities_user_id ON public.entities(user_id);
-CREATE INDEX IF NOT EXISTS idx_entities_status ON public.entities(status);
-CREATE INDEX IF NOT EXISTS idx_entities_created_at ON public.entities(created_at DESC);
+CREATE INDEX idx_entities_user_id ON public.entities(user_id);
+
+CREATE INDEX idx_entities_created_at ON public.entities(created_at DESC);
 
 -- Auto-update updated_at trigger
 CREATE OR REPLACE FUNCTION update_entity_updated_at()
@@ -35,6 +37,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+DROP TRIGGER IF EXISTS entities_updated_at ON public.entities;
 CREATE TRIGGER entities_updated_at
   BEFORE UPDATE ON public.entities
   FOR EACH ROW EXECUTE FUNCTION update_entity_updated_at();
