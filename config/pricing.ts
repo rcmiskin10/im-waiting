@@ -25,78 +25,56 @@ export const pricingConfig: {
 
   defaultLimits: {
     launch_pages: 1,
-    signups: 250
+    signups: 200
   },
 
   plans: [
     {
       id: 'free',
       name: 'Free',
-      description: 'Perfect for validating your next idea',
+      description: 'Everything you need to validate your first idea',
       price: { monthly: 0 },
       limits: {
         launch_pages: 1,
-        signups: 250
+        signups: 200
       },
       features: [
-        '1 launch page',
-        'Up to 250 email signups',
-        'Basic referral tracking with unique links',
-        'Countdown timer',
-        '3 modern templates',
-        'Subdomain hosting (you.imwaiting.io)',
-        'Basic analytics (total signups, daily chart)',
-        'Subtle \'Powered by ImWaiting\' badge'
+        '1 waitlist page',
+        'Up to 200 signups',
+        'Email capture form',
+        'Basic referral link tracking',
+        'Launch countdown timer',
+        'Mobile-responsive templates',
+        'Branded subdomain (you.imwaiting.io)',
+        'ImWaiting badge on page'
       ],
-      cta: 'Get Started Free',
+      cta: 'Start Building Free',
     },
     {
       id: 'pro',
       name: 'Pro',
-      description: 'For serious launches — no limits, no contact caps',
-      price: { monthly: 12, yearly: 96 },
+      description: 'For serial launchers who ship fast and ship often',
+      price: { monthly: 12, yearly: 99 },
       priceId: process.env.STRIPE_PRICE_PRO,
       limits: {
         launch_pages: -1,
         signups: -1
       },
       features: [
-        'Unlimited launch pages',
-        'Unlimited email signups — no contact caps',
+        'Unlimited waitlist pages',
+        'Unlimited signups',
         'Custom domain support',
-        'Remove ImWaiting badge',
-        'Full analytics dashboard (sources, geography, referral chains)',
-        'All templates + custom CSS',
-        'Referral leaderboard & milestone rewards',
-        'Integrations (Zapier, Discord, Slack, ConvertKit)',
-        'Embeddable waitlist widget',
-        'CSV/JSON data export',
-        'Priority email support'
+        'Remove ImWaiting branding',
+        'Advanced referral analytics & leaderboard',
+        'Custom email notifications',
+        'A/B test headlines',
+        'Custom thank-you pages',
+        'CSV export of subscribers',
+        'Zapier & webhook integrations',
+        'Priority support'
       ],
       highlighted: true,
-      cta: 'Start Pro — $12/mo',
-    },
-    {
-      id: 'team',
-      name: 'Team',
-      description: 'For studios and teams launching multiple products',
-      price: { monthly: 29, yearly: 240 },
-      priceId: process.env.STRIPE_PRICE_TEAM,
-      limits: {
-        launch_pages: -1,
-        signups: -1
-      },
-      features: [
-        'Everything in Pro',
-        '3 team member seats',
-        'A/B testing for landing pages',
-        'Custom email sequences',
-        'Full API access',
-        'White-label option',
-        'Stripe pre-launch payment integration',
-        'Dedicated support'
-      ],
-      cta: 'Contact Us',
+      cta: 'Upgrade to Pro',
     }
   ],
 }

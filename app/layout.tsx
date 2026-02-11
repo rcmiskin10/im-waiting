@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'ImWaiting - Launch pages that build hype before you ship',
-  description: 'A waitlist and launch page builder with email capture, referral tracking, and countdown timers for indie hackers.',
+  title: 'ImWaiting - Launch pages that build hype before you build the product',
+  description: 'All-in-one waitlist and launch page builder with referral tracking for indie hackers and solo founders.',
 };
 
 export default function RootLayout({
